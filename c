@@ -1,3 +1,4 @@
+--cac
 local PCR_1 = Instance.new("ScreenGui")
 local TweenService = game:GetService('TweenService');
 local uis = game:GetService("UserInputService")
@@ -820,21 +821,6 @@ local function getsize(frame)
 	return size
 end
 library.fps = ''
-
-local s,e = pcall(function()
-	local k = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-end)
-
-if not s or e then
-	library.ms = 'err'
-else
-	spawn(function()
-		game:GetService("RunService").RenderStepped:Connect(function()
-			local plr = game:GetService('Players').LocalPlayer
-			library.ms =  game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-		end)
-	end)
-end
 
 
 
